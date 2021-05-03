@@ -15,7 +15,7 @@ import com.boa.upload.models.Customer;
 import com.boa.upload.services.CustomerService;
 
 @RestController
-@RequestMapping("customers")
+@RequestMapping("/customers")
 public class CustomerController {
 	@Autowired
 	private CustomerService customerService;
