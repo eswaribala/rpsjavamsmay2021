@@ -250,8 +250,8 @@ step 8
 #container
               6062:6060 
               docker level port:internal port 
-docker run -p 6060:6060 --name virtusa-c1 
---link virtusa-mysql:mysql -d rmapp:latest
+docker run -p 6060:6060 --name usa-c1 
+--link usa-mysql:mysql -d rmapp:latest
 
 
 docker run -p 7070:7070 --name boa-upload-c1 
