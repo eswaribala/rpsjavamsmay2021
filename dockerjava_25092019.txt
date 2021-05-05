@@ -322,10 +322,10 @@ docker run -h 192.168.99.100 -p 7074:7070 --name dt-claim-app-c3
 --link data-mysql:mysql -d datamaticsclaimappimage:latest
 
 docker run  -p 8070:8070 --name appointment-c1
---link virtusa-mysql:mysql -d appointmentapp:latest
+--link usa-mysql:mysql -d appointmentapp:latest
 
 docker run -h 192.168.99.100 -p 8072:8070 --name appointment-c2
---link virtusa-mysql:mysql -d appointmentapp:latest
+--link usa-mysql:mysql -d appointmentapp:latest
 
 docker run -p 7070:7070 --name boa-c1
 --link boa-mysql:mysql -d customerboaapp:latest
@@ -333,10 +333,10 @@ docker run -p 7070:7070 --name boa-c1
 docker run  --name payrolldocker-c2 -p 5000:80 -d payrolldockerapi:dev
 
 docker run -h 192.168.99.100 -p 8074:8070 --name appointment-c3
---link virtusa-mysql:mysql -d appointmentapp:latest
+--link usa-mysql:mysql -d appointmentapp:latest
 
-docker run -h 192.168.99.103 -p 7070:7070 --name virtusa-customer-app-c1
---link virtusa-mysql:mysql -d customerserviceapp:latest
+docker run -h 192.168.99.103 -p 7070:7070 --name usa-customer-app-c1
+--link usa-mysql:mysql -d customerserviceapp:latest
 
 
 docker run -p 7070:7070 --name cgi-upload-app-c1
@@ -349,7 +349,7 @@ docker run -d -h 192.168.99.100 -p 8761:8761 eurekaserver:latest
 
 docker run -d -h 192.168.99.100 -p 8888:8888 -e SPRING_CLOUD_CONFIG_SERVER_GIT_URI=https://github.com/eswaribala/rps_test_2019.git configserver:latest 
 
-http://192.168.99.100:8888/virtusa-mysql-docker-development.properties
+http://192.168.99.100:8888/usa-mysql-docker-development.properties
 
                                  ext   int (docker file expose)
  docker run -h 192.168.99.100 -p 7080:7080  -e "SPRING_PROFILES_ACTIVE=development" --name virtusa-us-customer-app --link virtusa-mysql:mysql  --link funny_borg:eurekaserver --link distracted_northcutt:configserver -d customerusapp:latest 
@@ -544,8 +544,8 @@ docker push eswaribala/rpsallsecrepo:latest
 docker tag dockersampling:latest eswaribala/rpsdockertraining:v1
 docker push eswaribala/rpsdockertraining:v1
 
-docker tag rmapp:latest eswaribala/virtusausoct2020:v1
-docker push eswaribala/virtusausoct2020:v1
+docker tag rmapp:latest eswaribala/usausoct2020:v1
+docker push eswaribala/usausoct2020:v1
 
 
 
@@ -595,7 +595,7 @@ kubectl logs mysql-78dc9c6b94-vfgtq
 kubectl get services
 get ipaddress
 kubectl run -it --rm --image=mysql --restart=Never mysql-client -- mysql -h mysql -ppassword
-create database virtusausappointmentdb;
+create database usausappointmentdb;
 show databases;
 =========================================================
 Creating the secrets
@@ -603,7 +603,7 @@ kubectl create secret generic mysql-root-pass --from-literal=password=password
 
 kubectl create secret generic mysql-user-pass --from-literal=username=demo_user --from-literal=password=demo_pass
 
-kubectl create secret generic mysql-db-url --from-literal=database=virtusausappointmentdb --from-literal=url='jdbc:mysql://mysql:3306/virtusausappointmentdb?useSSL=false
+kubectl create secret generic mysql-db-url --from-literal=database=virtusausappointmentdb --from-literal=url='jdbc:mysql://mysql:3306/usausappointmentdb?useSSL=false
 
 kubectl get secrets
 kubectl describe secrets mysql-user-pass
