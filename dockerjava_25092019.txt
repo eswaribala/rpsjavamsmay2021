@@ -61,16 +61,14 @@ docker run --name es-mysql -e MYSQL_ROOT_PASSWORD=password -e MYSQL_DATABASE=dem
 
 docker run --name boa-mysql -e MYSQL_ROOT_PASSWORD=password -e MYSQL_DATABASE=boainterdevcustomerdb -e MYSQL_USER=demo_user -e MYSQL_PASSWORD=demo_pass -d mysql
 
-docker run --name virtusa-mysql -e MYSQL_ROOT_PASSWORD=password -e MYSQL_DATABASE=virtusacustomerdb -e MYSQL_USER=demo_user -e MYSQL_PASSWORD=demo_pass -d mysql
+docker run --name esa-mysql -e MYSQL_ROOT_PASSWORD=password -e MYSQL_DATABASE=esacustomerdb -e MYSQL_USER=demo_user -e MYSQL_PASSWORD=demo_pass -d mysql
 
 docker run --name data-mysql -e MYSQL_ROOT_PASSWORD=password -e MYSQL_DATABASE=datamaticsclaimdb -e MYSQL_USER=demo_user -e MYSQL_PASSWORD=demo_pass -d mysql
 
-docker run --name virtusa-mysql -e MYSQL_ROOT_PASSWORD=password -e MYSQL_DATABASE=virtusacustomerdb -e MYSQL_USER=demo_user -e MYSQL_PASSWORD=demo_pass -d mysql
+docker run --name -mysql -e MYSQL_ROOT_PASSWORD=password -e MYSQL_DATABASE=virtusacustomerdb -e MYSQL_USER=demo_user -e MYSQL_PASSWORD=demo_pass -d mysql
 
-docker run --name virtusa-mysql -e MYSQL_ROOT_PASSWORD=password -e MYSQL_DATABASE=virtusausappointmentdb -e MYSQL_USER=demo_user -e MYSQL_PASSWORD=demo_pass -d mysql
 
-docker run --name virtusa-mysql -e MYSQL_ROOT_PASSWORD=password -e MYSQL_DATABASE=
-virtusauscustomerdevdb -e MYSQL_USER=demo_user -e MYSQL_PASSWORD=demo_pass -d mysql
+
 
                    
 docker run --name boa-mysql -e MYSQL_ROOT_PASSWORD=password -e MYSQL_DATABASE=
@@ -143,7 +141,7 @@ docker exec -it cgi-mysql mysql -u root -p
 docker exec -it es-mysql mysql -u root -p
 docker exec -it boa-mysql mysql -u root -p
 docker exec -it data-mysql mysql -u root -p
-docker exec -it virtusa-mysql mysql -u root -p
+
                 container name image name
 docker exec -it   boa-mysql     mysql      -u root  -p
 docker exec -it   hsbc-mysql     mysql      -u root  -p
@@ -207,7 +205,7 @@ step 2
 
 create docker file
 FROM java:8
-LABEL maintainer=ìchathuranga.t@gmail.comî
+LABEL maintainer=‚Äúchathuranga.t@gmail.com‚Äù
 VOLUME /tmp
 EXPOSE 8080
 ADD target/spring-boot-data-jpa-example-0.0.1-SNAPSHOT.jar spring-boot-data-jpa-example-0.0.1-SNAPSHOT.jar
@@ -512,11 +510,11 @@ docker network inspect bridge
 create our own network
 
 docker network create --driver bridge my_isolated_bridge_network
-docker network create --driver bridge virtusa_network
+docker network create --driver bridge usa_network
 docker network inspect my_isolated_bridge_network
 docker network ls
 docker run --net=my_isolated_bridge_network --name=my_psql_db postgres
-docker run ñit -ñnetwork=my_isolated_bridge_network ubuntu:latest /bin/bash 
+docker run ‚Äìit -‚Äìnetwork=my_isolated_bridge_network ubuntu:latest /bin/bash 
 docker network inspect my_isolated_bridge_network
 
 
@@ -585,7 +583,7 @@ docker push  eswaribala/practicelab:v1
 ========================================================
 kubectl get all
 --------------------------------------------------
-goto apppointmenntdocker project in f:\virtusausjune
+goto apppointmenntdocker project in f:\vvvirtusausjune
  kubectl apply -f mysql-pv.yaml
 kubectl apply -f mysql-deployment.yaml
 kubectl get all
