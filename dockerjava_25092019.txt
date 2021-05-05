@@ -276,10 +276,10 @@ docker run -p 6062:6060 --name crm-c2 -d crmapp1:latest
 docker run -p 6064:6060 --name crm-c3 -d crmapp1:latest
 
 docker run -p 7070:8070 --name appointment-c1 
---link virtusa-mysql:mysql -d appointmentapp:latest
+--link usa-mysql:mysql -d appointmentapp:latest
 
 docker run -p 7072:8070 --name appointment-c2 
---link virtusa-mysql:mysql -d appointmentapp:latest
+--link tusa-mysql:mysql -d appointmentapp:latest
 
 
 
